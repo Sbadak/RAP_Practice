@@ -1,0 +1,6 @@
+@EndUserText.label: 'service defination on projection view'
+define service Zbs_travel_sd {
+  expose zbs_travel_c;
+  expose zbs_booking_c;
+  expose ZBS_BOOKING_SUPL_C;
+}

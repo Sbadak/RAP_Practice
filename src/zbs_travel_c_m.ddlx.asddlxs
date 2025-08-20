@@ -1,0 +1,68 @@
+@Metadata.layer: #CORE
+@UI:{ headerInfo:{ typeName: 'Travel',
+                   typeNamePlural: 'Travels',
+                   title:{ type: #STANDARD,value: 'TravelId' } },
+      presentationVariant: [{ sortOrder: [{ by: 'TravelId',direction: #ASC }] }] }
+annotate entity zbs_travel_c with
+{
+
+  @UI.facet: [{id :'Travel',
+              purpose: #STANDARD,
+              type:#IDENTIFICATION_REFERENCE ,
+              label: 'Travel',
+              position  :10},
+              
+              { id : 'Booking',
+               purpose :#STANDARD,
+               type:#LINEITEM_REFERENCE,
+               position: 20 ,
+               label :'Booking',
+               targetElement: '_Booking'
+       } ]
+
+
+  @UI.hidden: true
+  TravelUuid;
+  @UI.identification: [{position: 10  }]
+  @UI.lineItem: [{position: 10,importance: #HIGH  }]
+  TravelId;
+   @UI.identification: [{position: 20  }]
+  @UI.lineItem: [{position: 20,importance: #HIGH  }]
+  AgencyId;
+   @UI.identification: [{position: 30  }]
+  @UI.lineItem: [{position: 30,importance: #HIGH  }]
+  CustomerId;
+   @UI.identification: [{position: 40  }]
+  @UI.lineItem: [{position: 40,importance: #HIGH  }]
+  BeginDate;
+   @UI.identification: [{position: 50  }]
+  @UI.lineItem: [{position: 50,importance: #HIGH  }]
+  EndDate;
+   @UI.identification: [{position: 60  }]
+  @UI.lineItem: [{position: 60,importance: #HIGH  }]
+  BookingFee;
+   @UI.identification: [{position: 70  }]
+  @UI.lineItem: [{position: 70,importance: #HIGH  }]
+  TotalPrice;
+  @UI.hidden: true
+  CurrencyCode;
+   @UI.identification: [{position: 80  }]
+  @UI.lineItem: [{position: 80,importance: #MEDIUM }]
+  Description;
+   @UI.identification: [{position: 90  }]
+  @UI.lineItem: [{position: 90,importance: #MEDIUM }]
+  OverallStatus;
+  @UI.lineItem: [{ position: 100 ,importance:#LOW  }]
+  CreatedBy;
+  @UI.lineItem: [{ position: 110 ,importance:#LOW  }]
+  CreatedAt;
+  @UI.lineItem: [{ position: 120 ,importance:#LOW  }]
+  LocalLastChangedBy;
+  @UI.lineItem: [{ position: 130 ,importance:#LOW  }]
+  LocalLastChangedAt;
+  @UI.lineItem: [{ position: 140 ,importance:#LOW  }]
+  LastChangedAt;
+  /* Associations */
+  @UI.hidden: true
+    _Booking;
+}

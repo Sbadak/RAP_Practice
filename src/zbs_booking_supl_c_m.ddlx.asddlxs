@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+@UI:{headerInfo:{ typeName: 'Bookingsupplement',
+ typeNamePlural: 'Bookingsupplements',
+ title:{ type: #STANDARD,value: 'BookingSupplementId'}
+}}
+annotate entity ZBS_BOOKING_SUPL_C with
+{
+  @UI.facet: [{id :'Bookingsupplement' ,
+  type :#IDENTIFICATION_REFERENCE,
+  purpose: #STANDARD,
+  label: 'Bookingsupplement',
+  position :10 }]
+
+
+  @UI.hidden: true
+  BooksupplUuid;
+  @UI.hidden: true
+  RootUuid;
+  @UI.hidden: true
+  ParentUuid;
+  @UI.lineItem: [{position: 10, importance: #HIGH  }]
+  @UI.identification: [{position: 10  }]
+  BookingSupplementId;
+  @UI.identification: [{position: 20  }]
+  @UI.lineItem: [{position: 20, importance: #HIGH  }]
+  SupplementId;
+  @UI.identification: [{position: 30  }]
+  @UI.lineItem: [{position: 30, importance: #HIGH  }]
+  Price;
+  @UI.hidden: true
+  //@UI.lineItem: [{position: 10, importance: #HIGH  }]
+  CurrencyCode;
+  @UI.identification: [{position: 40  }]
+  @UI.lineItem: [{position: 40, importance: #HIGH  }]
+  LastChangedAt;
+  /* Associations */
+  //  _Booking;
+  // _Travel;
+
+}

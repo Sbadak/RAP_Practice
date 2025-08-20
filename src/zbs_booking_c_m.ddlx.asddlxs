@@ -1,0 +1,60 @@
+@Metadata.layer: #CORE
+@UI:{ headerInfo:{ typeName: 'Booking',
+                   typeNamePlural: 'Bookings' ,
+                   title : { type: #STANDARD,value: 'BookingId' }} }
+annotate entity zbs_booking_c
+    with 
+{
+   @UI.facet: [{id :'Booking',
+   purpose: #STANDARD ,
+   type :#IDENTIFICATION_REFERENCE,
+    label:'Booking',
+    position: 20 },
+    
+    { id :'Bookingsupplement',
+    purpose: #STANDARD,
+    type :#LINEITEM_REFERENCE,
+    label: 'Bookingsupplement',
+    targetElement:'_Bookingsupplements',
+    position: 30
+    //targetQualifier: '_Bookingsupplements'
+    }]
+   
+   
+    @UI.hidden: true
+    BookingUuid;
+    @UI.hidden: true
+    TravelUuid;
+    @UI.lineItem: [{position: 10,importance: #HIGH }]
+    @UI.identification: [{ position: 10 }]
+    BookingId;
+    @UI.lineItem: [{position: 20,importance: #HIGH }]
+    @UI.identification: [{ position: 20 }]
+    CustomerId;
+    @UI.lineItem: [{position: 30,importance: #HIGH }]
+    @UI.identification: [{ position: 30 }]
+    CarrierId;
+    @UI.lineItem: [{position: 40,importance: #HIGH }]
+    @UI.identification: [{ position: 40 }]
+    ConnectionId;
+    @UI.lineItem: [{position: 50,importance: #HIGH }]
+    @UI.identification: [{ position: 50 }]
+    BookingDate;
+    @UI.lineItem: [{position: 60,importance: #HIGH }]
+    @UI.identification: [{ position: 60 }]
+    FlightDate;
+    @UI.lineItem: [{position: 70,importance: #HIGH }]
+    @UI.identification: [{ position: 70 }]
+    FlightPrice;
+    @UI.hidden: true
+    CurrencyCode;
+    @UI.lineItem: [{position: 80,importance: #LOW}]
+    @UI.identification: [{ position: 80 }]
+    BookingStatus;
+    @UI.lineItem: [{position: 90,importance: #LOW }]
+    LastChangedAt;
+    /* Associations */
+  //  _Bookingsupplements;
+   // _Travel;
+    
+}
