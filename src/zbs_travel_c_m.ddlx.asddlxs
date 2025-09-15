@@ -24,13 +24,19 @@ annotate entity zbs_travel_c with
   @UI.hidden: true
   TravelUuid;
   @UI.identification: [{position: 10  }]
-  @UI.lineItem: [{position: 10,importance: #HIGH  }]
+  @UI:{ lineItem: [{position: 10,importance: #HIGH },
+  {type:#FOR_ACTION,dataAction: 'accepttravel' ,label: 'Accept',invocationGrouping: #CHANGE_SET } ,
+  {type:#FOR_ACTION,dataAction: 'rejecttravel' ,label: 'Reject',invocationGrouping: #CHANGE_SET },
+  {type:#FOR_ACTION,dataAction: 'Discount' ,label: 'Discount',invocationGrouping: #CHANGE_SET }
+  ] }
   TravelId;
    @UI.identification: [{position: 20  }]
   @UI.lineItem: [{position: 20,importance: #HIGH  }]
+   @Consumption.valueHelpDefinition: [{entity:{name: '/DMO/I_Agency_StdVH',element: 'AgencyID'  }}]
   AgencyId;
    @UI.identification: [{position: 30  }]
   @UI.lineItem: [{position: 30,importance: #HIGH  }]
+  @Consumption.valueHelpDefinition: [{entity:{name: '/DMO/I_Customer_StdVH',element: 'CustomerID'  }}]
   CustomerId;
    @UI.identification: [{position: 40  }]
   @UI.lineItem: [{position: 40,importance: #HIGH  }]
@@ -40,11 +46,13 @@ annotate entity zbs_travel_c with
   EndDate;
    @UI.identification: [{position: 60  }]
   @UI.lineItem: [{position: 60,importance: #HIGH  }]
+
   BookingFee;
    @UI.identification: [{position: 70  }]
   @UI.lineItem: [{position: 70,importance: #HIGH  }]
   TotalPrice;
-  @UI.hidden: true
+   @Consumption.valueHelpDefinition: [{entity:{name: 'I_CurrencyStdVH',element: 'Currency'  }}]
+ // @UI.hidden: true
   CurrencyCode;
    @UI.identification: [{position: 80  }]
   @UI.lineItem: [{position: 80,importance: #MEDIUM }]

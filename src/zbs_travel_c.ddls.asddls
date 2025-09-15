@@ -14,6 +14,7 @@ define root view entity zbs_travel_c
     @Semantics.amount.currencyCode: 'CurrencyCode'
     BookingFee,
     @Semantics.amount.currencyCode: 'CurrencyCode'
+  //  @Consumption.valueHelpDefinition: [{enabled: 'TotalPrice'}]
     TotalPrice,
     CurrencyCode,
     Description,

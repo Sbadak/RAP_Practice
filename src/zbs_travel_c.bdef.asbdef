@@ -1,20 +1,30 @@
 projection;
 strict ( 2 );
 use draft;
+use side effects;
 define behavior for zbs_travel_c //alias <alias_name>
 {
   use create;
   use update;
   use delete;
+  use action Edit;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action Activate;
+  use action rejecttravel;
+  use action accepttravel;
+  use action discount;
 
-use action Edit;
-use action Discard;
-use action Resume ;
-use action Prepare;
-use action Activate;
+  use action validatecustomerid;
+  use action validateagencyid;
+  use action validatedatesval;
 
 
-  use association _Booking { create;with draft; }
+  use function GetDefaultsFordeductdiscounts;
+
+
+  use association _Booking { create; with draft; }
 }
 
 define behavior for zbs_booking_c //alias <alias_name>
@@ -22,8 +32,8 @@ define behavior for zbs_booking_c //alias <alias_name>
   use update;
   use delete;
 
-  use association _Travel{with draft;}
-  use association _Bookingsupplements { create;with draft; }
+  use association _Travel { with draft; }
+  use association _Bookingsupplements { create; with draft; }
 }
 
 define behavior for ZBS_BOOKING_SUPL_C //alias <alias_name>
@@ -31,6 +41,6 @@ define behavior for ZBS_BOOKING_SUPL_C //alias <alias_name>
   use update;
   use delete;
 
-  use association _Travel{with draft;}
-  use association _Booking{with draft;}
+  use association _Travel { with draft; }
+  use association _Booking { with draft; }
 }

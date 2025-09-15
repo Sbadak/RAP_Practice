@@ -30,6 +30,7 @@ annotate entity ZBS_BOOKING_SUPL_C with
   @UI.hidden: true
   //@UI.lineItem: [{position: 10, importance: #HIGH  }]
   CurrencyCode;
+  @UI.hidden: true
   @UI.identification: [{position: 40  }]
   @UI.lineItem: [{position: 40, importance: #HIGH  }]
   LastChangedAt;
